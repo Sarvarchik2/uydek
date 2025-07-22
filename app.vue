@@ -19,7 +19,10 @@ body {
 *{
   box-sizing: border-box;
 }
-
+.catalog-card-swiper{
+  border-radius: 18px;
+  height: 190px;
+}
 .listing-swiper .swiper-pagination-progressbar {
   position: absolute !important;
   left: 0;
@@ -33,6 +36,24 @@ body {
   overflow: hidden;
   z-index: 3;
 } 
+.catalog-card-swiper .swiper-pagination-progressbar {
+  position: absolute !important;
+  left: 0;
+  right: 0;
+  bottom: 0 !important;
+  top: auto !important;
+  height: 6px;
+  background: #e9edf8;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  overflow: hidden;
+  z-index: 2;
+}
+.catalog-card-swiper .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  background: #3b82f6;
+  border-radius: 6px;
+  transition: width 0.3s;
+}
 
 :root {
   --container-padding-x: 15px;

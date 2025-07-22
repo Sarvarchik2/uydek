@@ -31,13 +31,13 @@
         </div>
         <div class="filter-item">
           <button class="filter-button on-map">
-            На карте
+            <span class="hide-on-tablet">На карте</span>
             <img src="@/assets/icons/onmap.svg" alt="map icon" />
           </button>
         </div>
         <div class="filter-item">
           <button class="show-button">
-            Показать 815 новостроек
+            <span class="hide-on-tablet">Показать</span>
             <img src="@/assets/icons/search_building.svg" alt="building icon" />
           </button>
         </div>
@@ -129,12 +129,74 @@
           </div>
         </div>
       </div>
+      <div class="main-catalog-block">
+        <div class="catalog-section">
+          <div class="catalog-section-header">
+            <span class="catalog-section-title">Купить квартиру</span>
+            <span class="catalog-section-arrow">&rarr;</span>
+          </div>
+          <div class="catalog-cards-grid">
+            <div v-for="(card, idx) in buyCards" :key="'buy'+idx" class="catalog-card">
+              <div class="catalog-card-img-wrap">
+                <Swiper
+                  :slides-per-view="1"
+                  :pagination="{ type: 'progressbar' }"
+                  :modules="[Pagination]"
+                  class="catalog-card-swiper"
+                >
+                  <SwiperSlide v-for="(img, i) in card.images" :key="i">
+                    <img :src="img" alt="flat" class="catalog-card-img" />
+                  </SwiperSlide>
+                  <template #pagination></template>
+                </Swiper>
+                <button class="catalog-like-btn" :class="{ active: card.liked }" @click="toggleLike('buy', idx)">
+                  <svg width="22" height="22" viewBox="0 0 24 24"><path :fill="card.liked ? '#3b82f6' : '#bbb'" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </button>
+              </div>
+              <div class="catalog-card-price">От 10.500.000 UZS</div>
+              <div class="catalog-card-location">Tashkent City</div>
+            </div>
+          </div>
+        </div>
+        <div class="catalog-section">
+          <div class="catalog-section-header">
+            <span class="catalog-section-title">Снять квартиру</span>
+            <span class="catalog-section-arrow">&rarr;</span>
+          </div>
+          <div class="catalog-cards-grid">
+            <div v-for="(card, idx) in rentCards" :key="'rent'+idx" class="catalog-card">
+              <div class="catalog-card-img-wrap">
+                <Swiper
+                  :slides-per-view="1"
+                  :pagination="{ type: 'progressbar' }"
+                  :modules="[Pagination]"
+                  class="catalog-card-swiper"
+                >
+                  <SwiperSlide v-for="(img, i) in card.images" :key="i">
+                    <img :src="img" alt="flat" class="catalog-card-img" />
+                  </SwiperSlide>
+                  <template #pagination></template>
+                </Swiper>
+                <button class="catalog-like-btn" :class="{ active: card.liked }" @click="toggleLike('rent', idx)">
+                  <svg width="22" height="22" viewBox="0 0 24 24"><path :fill="card.liked ? '#3b82f6' : '#bbb'" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </button>
+              </div>
+              <div class="catalog-card-price">От 10.500.000 UZS</div>
+              <div class="catalog-card-location">Tashkent City</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, reactive } from 'vue';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 // --- Room Selector ---
 const selectedRooms = ref('1');
@@ -167,6 +229,79 @@ const formatPrice = (event: Event) => {
   // Format with spaces for display
   price.value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 };
+
+const buyCards = ref([
+  { images: [
+      'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80',
+      'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80',
+    ], liked: false },
+  { images: [
+      'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=400&q=80',
+      'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=400&q=80',
+    ], liked: false },
+  { images: [
+      'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80',
+      'https://images.unsplash.com/photo-1465101178521-c1a9136a3c8b?auto=format&fit=crop&w=400&q=80',
+    ], liked: false },
+  { images: [
+      'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80',
+      'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=400&q=80',
+    ], liked: false },
+  { images: [
+      'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80',
+      'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80',
+    ], liked: false },
+  { images: [
+      'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=400&q=80',
+      'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=400&q=80',
+    ], liked: false },
+  { images: [
+      'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80',
+      'https://images.unsplash.com/photo-1465101178521-c1a9136a3c8b?auto=format&fit=crop&w=400&q=80',
+    ], liked: false },
+  { images: [
+      'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80',
+      'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=400&q=80',
+    ], liked: false }
+])
+const rentCards = ref([
+  { images: [
+      'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80',
+      'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80',
+    ], liked: false },
+  { images: [
+      'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=400&q=80',
+      'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=400&q=80',
+    ], liked: false },
+  { images: [
+      'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80',
+      'https://images.unsplash.com/photo-1465101178521-c1a9136a3c8b?auto=format&fit=crop&w=400&q=80',
+    ], liked: false },
+  { images: [
+      'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80',
+      'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=400&q=80',
+    ], liked: false },
+  { images: [
+      'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80',
+      'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80',
+    ], liked: false },
+  { images: [
+      'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=400&q=80',
+      'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=400&q=80',
+    ], liked: false },
+  { images: [
+      'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80',
+      'https://images.unsplash.com/photo-1465101178521-c1a9136a3c8b?auto=format&fit=crop&w=400&q=80',
+    ], liked: false },
+  { images: [
+      'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80',
+      'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=400&q=80',
+    ], liked: false }
+])
+function toggleLike(type: 'buy' | 'rent', idx: number) {
+  if (type === 'buy') buyCards.value[idx].liked = !buyCards.value[idx].liked
+  else rentCards.value[idx].liked = !rentCards.value[idx].liked
+}
 </script>
 
 <style scoped>
