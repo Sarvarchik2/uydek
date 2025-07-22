@@ -54,6 +54,7 @@
                   <div class="uydek-card-title">Новостройки</div>
                   <div class="uydek-card-count">2.356</div>
                 </div>
+                <div class="uydek-card-soon">Скоро</div>
               </div>
               <div class="uydek-card">
                 <img src="@/assets/index/buy.svg" alt="Купить" />
@@ -61,6 +62,7 @@
                   <div class="uydek-card-title">Купить</div>
                   <div class="uydek-card-count">2.356</div>
                 </div>
+                <div class="uydek-card-soon">Скоро</div>
               </div>
               <NuxtLink to="/rent" class="uydek-card">
                 <img src="@/assets/index/can_rent.svg" alt="Снять" />
@@ -68,6 +70,7 @@
                   <div class="uydek-card-title">Снять</div>
                   <div class="uydek-card-count">2.356</div>
                 </div>
+                
               </NuxtLink>
             </div>
           </div>
@@ -80,6 +83,8 @@
                   <div class="uydek-card-title">Оценим квартиру</div>
                   <div class="uydek-card-count">2.356</div>
                 </div>
+                <div class="uydek-card-soon">Скоро</div>
+
               </div>
             </div>
           </div>
@@ -94,6 +99,8 @@
                   <div class="uydek-card-title">Подберем квартиру</div>
                   <div class="uydek-card-count">2.356</div>
                 </div>
+                <div class="uydek-card-soon">Скоро</div>
+
               </div>
               <div class="uydek-card uydek-card-50">
                 <img src="@/assets/index/rent.svg" alt="Поможем сдать" />
@@ -101,6 +108,8 @@
                   <div class="uydek-card-title">Поможем сдать</div>
                   <div class="uydek-card-count">2.356</div>
                 </div>
+                <div class="uydek-card-soon">Скоро</div>
+
               </div>
             </div>
           </div>
@@ -113,6 +122,8 @@
                   <div class="uydek-card-title">Квартиры от самолет</div>
                   <div class="uydek-card-count">2.356</div>
                 </div>
+                <div class="uydek-card-soon">Скоро</div>
+
               </div>
             </div>
           </div>
