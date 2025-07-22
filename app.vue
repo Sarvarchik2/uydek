@@ -20,7 +20,19 @@ body {
   box-sizing: border-box;
 }
 
-
+.listing-swiper .swiper-pagination-progressbar {
+  position: absolute !important;
+  left: 0;
+  right: 0;
+  bottom: 0 !important;
+  top: auto !important;
+  height: 6px;
+  background: #e9edf8;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  overflow: hidden;
+  z-index: 3;
+} 
 
 :root {
   --container-padding-x: 15px;

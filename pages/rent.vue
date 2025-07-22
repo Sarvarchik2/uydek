@@ -75,25 +75,42 @@
       <div class="listings-list">
         <div class="listing-card" v-for="n in 3" :key="n">
           <div class="listing-img-wrap">
-            <img class="listing-img" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Квартира" />
+            <Swiper
+              :slides-per-view="1"
+              :pagination="{ type: 'progressbar' }"
+              :modules="modules"
+              class="listing-swiper"
+            >
+              <SwiperSlide v-for="(img, idx) in images" :key="idx">
+                <img class="listing-img" :src="img" alt="Квартира" />
+              </SwiperSlide>
+              <template class="listing-swiper-pagination" #pagination></template>
+            </Swiper>
             <span class="listing-badge">+23</span>
           </div>
           <div class="listing-info">
-            <div class="listing-title">Улица Т.Шевченко 10/4</div>
-            <div class="listing-meta">
-              <span class="listing-city"><img src="@/assets/icons/lang.svg" style="width:14px;vertical-align:middle;"/> Ташкент</span>
-              <span class="listing-dot">•</span>
-              <span class="listing-time">7мин</span>
+            <div class="listing-header-row">
+              <div class="listing-title">Улица Т.Шевченко 10/4</div>
+              <div class="listing-price">400 y.e</div>
+            </div>
+            <div class="listing-meta-row">
+              <span class="listing-metro">
+                <img src="@/assets/icons/metrom.svg" class="metro-icon" alt="метро" />
+                <span class="metro-name">Ташкент</span>
+              </span>
+              <span class="listing-time">
+                <svg class="time-icon" width="18" height="18" viewBox="0 0 24 24"><path fill="#888" d="M12 8v5h4"/><circle cx="12" cy="12" r="10" stroke="#888" stroke-width="2" fill="none"/></svg>
+                7мин
+              </span>
             </div>
             <div class="listing-desc">35,2 м² · 1-комнатная квартира 12 этаж из 12</div>
-            <div class="listing-benefit">ВЫГОДА - Без залога · Платите арендный платёж картой любого банка, кредитной/дебетовой и получите бонусы в соответствии с условиями...</div>
-            <div class="listing-actions">
+            <div class="listing-benefit"><span class="benefit-label">ВЫГОДА</span> - Без залога · Платите арендный платёж картой любого банка, кредитной/дебетовой и получите бонусы в соответствии с условиями...</div>
+            <div class="listing-actions-row">
               <button class="listing-btn main">Показать телефон</button>
-              <button class="listing-btn">Написать в чат</button>
-              <button class="listing-fav"><span>♡</span></button>
+              <button class="listing-btn outline">Написать в чат</button>
+              <button class="listing-fav outlineimg"><img src="@/assets/icons/heart.svg" alt="heart" style="width:20px;vertical-align:middle;" /></button>
             </div>
           </div>
-          <div class="listing-price">400 y.e</div>
         </div>
       </div>
       <div class="listings-map">
@@ -104,13 +121,26 @@
     </div>
   </div>
 </template>
-
+<style scoped>
+@import url('./rent.css');
+</style> 
 <script setup>
 import { ref } from 'vue'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Pagination } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/pagination'
 
+const modules = [Pagination]
 const selectedRooms = ref(['Студия'])
 const selectedBuildingType = ref('Взнос и платеж')
 const isBuildingTypeDropdownOpen = ref(false)
+
+const images = [
+  'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80',
+  'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80',
+  'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=400&q=80'
+]
 
 function toggleRoom(room) {
   const idx = selectedRooms.value.indexOf(room)
@@ -130,6 +160,3 @@ function selectBuildingType(type) {
 }
 </script>
 
-<style scoped>
-@import url('./rent.css');
-</style> 

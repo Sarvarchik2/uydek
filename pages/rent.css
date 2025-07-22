@@ -95,6 +95,7 @@
   font-size: 15px;
   font-weight: 700;
   border-radius: 12px;
+  z-index: 2;
   padding: 2px 12px;
 }
 .listing-info {
@@ -105,30 +106,155 @@
   height: 100%;
   justify-content: space-between;
 }
-.listing-title {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 2px;
+.listing-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 4px;
 }
-.listing-meta {
-  font-size: 15px;
-  color: #888;
+.listing-title {
+  font-size: 22px;
+  font-weight: 500;
+  color: #111;
+  margin-bottom: 0;
+}
+.listing-price {
+  font-size: 32px;
+  font-weight: 700;
+  color: #4a8afc;
+  min-width: 110px;
+  text-align: right;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  margin-left: 12px;
+  position: static;
+  right: auto;
+  top: auto;
+}
+.listing-meta-row {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.listing-metro {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #111;
+}
+.metro-icon {
+  width: 22px;
+  height: 22px;
+  vertical-align: middle;
+  filter: invert(22%) sepia(99%) saturate(7492%) hue-rotate(357deg) brightness(97%) contrast(110%);
+}
+.metro-name {
+  color: #000;
+  font-weight: 400;
+  font-size: 18px;
+}
+.listing-time {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #888;
+  font-size: 16px;
+  font-weight: 500;
+}
+.time-icon {
+  margin-right: 2px;
+  opacity: 0.7;
 }
 .listing-dot {
   font-size: 18px;
   color: #bbb;
 }
 .listing-desc {
-  font-size: 15px;
-  color: #222;
+  font-size: 16px;
+  color: #111;
+  margin-bottom: 2px;
+  font-weight: 400;
 }
 .listing-benefit {
-  font-size: 13px;
-  color: #6b7280;
-  margin-bottom: 4px;
+  font-size: 15px;
+  color: #828282;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+.benefit-label {
+  color: #8a8a8a;
+  font-weight: 700;
+  margin-right: 4px;
+  text-transform: uppercase;
+}
+.listing-actions-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 18px;
+  align-items: center;
+}
+.listing-btn.main {
+  background: #4a8afc;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  height: 38px;
+  border: none;
+  padding: 7px 18px;
+  border-radius: 32px;
+  box-shadow: none;
+}
+.listing-btn.outline {
+  background: #f6f8fb;
+  color: #4a8afc;
+  font-weight: 600;
+  font-size: 16px;
+  height: 38px;
+  border: 2px solid #4a8afc;
+  padding: 7px 18px;
+  border-radius: 32px;
+  box-shadow: none;
+}
+.listing-fav.outlineimg img{
+  width: 20px;
+  height: 20px;
+}
+.listing-fav.outlineimg{
+  background: #f6f8fb;
+  color: #4a8afc;
+  border: 2px solid #4a8afc;
+  border-radius: 50%;
+  padding: 10px;
+}
+.listing-btn.main:hover {
+  background: #2563eb;
+}
+.listing-btn.outline:hover {
+  background: #eaf1ff;
+}
+.listing-fav.outline {
+  background: #fff;
+  color: #4a8afc;
+  border: 2px solid #4a8afc;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  padding: 0;
+  transition: background 0.15s, color 0.15s, border 0.15s;
+}
+.listing-fav.outline:hover {
+  background: #eaf1ff;
+  color: #2563eb;
+  border-color: #2563eb;
 }
 .listing-actions {
   display: flex;
@@ -146,9 +272,8 @@
   cursor: pointer;
   transition: background 0.15s, color 0.15s;
 }
-.listing-btn.main {
-  background: #3b82f6;
-  color: #fff;
+.listing-btn.main:hover {
+  background: #2563eb;
 }
 .listing-btn:hover {
   background: #eaf1ff;
@@ -458,3 +583,59 @@
   font-weight: 700;
   background: #f6f8fb;
 } 
+.swiper{
+  height: 100%;
+}
+.swiper-pagination-progressbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 6px;
+  background: #e9edf8;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  overflow: hidden;
+}
+.listing-swiper .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  background: #3b82f6;
+  border-radius: 6px;
+  transition: width 0.3s;
+} 
+.listing-img-wrap .swiper-pagination-progressbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0 !important;
+  height: 6px;
+  background: #e9edf8;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  overflow: hidden;
+  z-index: 3;
+} 
+.listing-swiper .swiper-pagination-progressbar {
+  position: absolute !important;
+  left: 0;
+  right: 0;
+  bottom: 0 !important;
+  top: auto !important;
+  height: 6px;
+  background: #e9edf8;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  overflow: hidden;
+  z-index: 3;
+} 
+.listing-swiper-pagination{
+  position: absolute !important;
+  left: 0;
+  right: 0;
+  top: 100% !important;
+  height: 6px;
+  background: #e9edf8;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  overflow: hidden;
+  z-index: 3;
+}
