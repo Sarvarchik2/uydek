@@ -1,9 +1,9 @@
 <template>
   <div class="container navbar-container" @click.stop>
     <div class="navbar">
-      <div class="navbar-logo">
+      <NuxtLink to="/" class="navbar-logo">
         <img src="@/assets/logo.svg" alt="logo" />
-      </div>
+      </NuxtLink>
       <div class="navbar-search">
         <input type="text" placeholder="Поиск" />
         <img src="@/assets/icons/search.svg" alt="search" />

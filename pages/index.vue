@@ -62,13 +62,13 @@
                   <div class="uydek-card-count">2.356</div>
                 </div>
               </div>
-              <div class="uydek-card">
+              <NuxtLink to="/rent" class="uydek-card">
                 <img src="@/assets/index/can_rent.svg" alt="Снять" />
                 <div class="uydek-card-content">
                   <div class="uydek-card-title">Снять</div>
                   <div class="uydek-card-count">2.356</div>
                 </div>
-              </div>
+              </NuxtLink>
             </div>
           </div>
           <div class="uydek-cards-col">
