@@ -1,5 +1,6 @@
 .listings-container {
   margin-bottom: 32px;
+  margin-top: 22px;
 }
 
 .listings-filters {
@@ -20,7 +21,7 @@
   background: #fff;
   border: none;
   border-radius: 100px;
-  padding: 1px 24px;
+  padding: 11px 24px;
   font-size: 16px;
   font-weight: 400;
   color: #5A83ED99;
@@ -198,6 +199,7 @@
   gap: 16px;
   margin-top: 18px;
   align-items: center;
+  flex-wrap: wrap;
 }
 .listing-btn.main {
   background: #4a8afc;
@@ -231,6 +233,11 @@
   border: 2px solid #4a8afc;
   border-radius: 50%;
   padding: 10px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .listing-btn.main:hover {
   background: #2563eb;
@@ -463,101 +470,13 @@
   font-weight: 600;
   color: #222;
 }
-@media (max-width: 992px) {
-  .listing-img-wrap{
-    min-width: 230px;
-    max-width: 230px;
-    height: 230px;
-  }
-  
-}
-@media (max-width: 769px) {
-  .listing-card{
-    flex-direction: column;
-  }
-  .listing-img-wrap{
-    min-width: 100%;
-    max-width: 100%;
-    height: 230px;
-  }
-    
-}
-@media (max-width: 700px) {
-  .rent-filter-row {
-    gap: 6px;
-    margin-bottom: 6px;
-  }
-  .rent-filter-btn, .rent-filter-price-group {
-    font-size: 13px;
-    padding: 7px 10px;
-  }
-  .rent-filter-btn.room-btn {
-    width: 32px;
-    height: 32px;
-    min-width: 32px;
-    min-height: 32px;
-    max-width: 32px;
-    max-height: 32px;
-    font-size: 15px;
-  }
-  .rent-filter-price-group {
-    padding: 6px 10px;
-  }
-}
-
-@media (max-width: 1100px) {
-  .listings-content {
-    flex-direction: column;
-  }
-  .listings-map {
-    max-width: 100%;
-    align-items: stretch;
-    margin-top: 24px;
-  }
-}
-@media (max-width: 700px) {
-  .listings-container {
-    margin-bottom: 12px;
-  }
-  .listings-filters {
-    margin-bottom: 10px;
-  }
-  .filter-row {
-    gap: 6px;
-    margin-bottom: 6px;
-  }
-  .filter-btn, .filter-input-group {
-    font-size: 13px;
-    padding: 7px 10px;
-  }
-  .listing-card {
-    flex-direction: column;
-    padding: 15px 15px;
-    gap: 10px;
-  }
-  .listing-img-wrap {
-    min-width: 100%;
-    max-width: 100%;
-    height: 240px;
-  }
-  .listing-price {
-    margin-left: 0;
-    font-size: 20px;
-    margin-top: 8px;
-    top: 250px;
-    right: 10px;
-    text-align: end;
-  }
-  .map-block {
-    padding: 4px;
-  }
-} 
 
 .rent-filter-dropdown-building-type {
   position: relative;
   display: inline-block;
 }
 .rent-filter-btn-building-type {
+  width: max-content;
   background: #fff;
   color: #222;
   font-weight: 600;
@@ -659,4 +578,132 @@
   border-bottom-right-radius: 16px;
   overflow: hidden;
   z-index: 3;
+}
+
+@media (max-width: 1100px) {
+  .listings-content {
+    flex-direction: column;
+  }
+  .listings-map {
+    max-width: 100%;
+    align-items: stretch;
+    margin-top: 24px;
+  }
+}
+@media (max-width: 992px) {
+  .listing-img-wrap{
+    min-width: 230px;
+    max-width: 230px;
+    height: 230px;
+  }
+  
+}
+@media (max-width: 769px) {
+  .listing-card{
+    flex-direction: column;
+  }
+  .listing-img-wrap{
+    min-width: 100%;
+    max-width: 100%;
+    height: 230px;
+  }
+  .listing-price{
+    top: 268px;
+  }
+    
+}
+@media (max-width: 700px) {
+  .rent-filter-row {
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+  .rent-filter-btn, .rent-filter-price-group {
+    font-size: 13px;
+    padding: 7px 10px;
+  }
+  .rent-filter-btn.room-btn {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    max-width: 32px;
+    max-height: 32px;
+    font-size: 15px;
+  }
+  .rent-filter-price-group {
+    padding: 6px 10px;
+  }
+}
+
+
+@media (max-width: 700px) {
+  .listings-container {
+    margin-bottom: 12px;
+  }
+  .listings-filters {
+    margin-bottom: 10px;
+  }
+  .filter-row {
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+  .filter-btn, .filter-input-group {
+    font-size: 13px;
+    padding: 7px 10px;
+  }
+  .listing-card {
+    flex-direction: column;
+    padding: 15px 15px;
+    gap: 10px;
+  }
+  .listing-img-wrap {
+    min-width: 100%;
+    max-width: 100%;
+    height: 240px;
+  }
+  .listing-price {
+    margin-left: 0;
+    font-size: 20px;
+    margin-top: 8px;
+    top: 250px;
+    right: 10px;
+    text-align: end;
+  }
+  .map-block {
+    padding: 4px;
+  }
+} 
+@media (max-width: 500px) {
+  .listing-btn.main{
+    width: 100%;
+
+  }
+  .listing-fav.outlineimg{
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .listing-btn.outline{
+    width: 86%;
+  }
+}
+
+@media (max-width: 444px) {
+  .listing-btn.outline{
+    width: 82%;
+  }
+  .listing-price{
+    top: 255px;
+  }
+  .listing-title{
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 362px) {
+  .listing-btn.outline{
+    width: 80%;
+  }
 }
