@@ -42,6 +42,8 @@
     background-color: #fff;
     padding: 12px 20px;
     font-size: 16px;
+
+    z-index: 2;
     font-weight: 500;
     cursor: pointer;
     display: flex;
@@ -84,31 +86,39 @@
 .dropdown-container {
     position: relative;
 }
-
-.filter-dropdown-menu {
+ .filter-dropdown-menu {
     position: absolute;
-    top: calc(100% + 5px);
+    top: 60%; /* небольшой отступ от кнопки */
     left: 0;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    background: #fff;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0 8px 32px rgba(60, 100, 200, 0.10), 0 1.5px 6px rgba(60, 100, 200, 0.04);
     display: flex;
     flex-direction: column;
-    padding: 8px 0;
-    z-index: 10;
+    padding: 12px 0;
+    padding-top: 30px;
+    z-index: 1;
     min-width: 100%;
+    transition: opacity 0.18s cubic-bezier(.4,0,.2,1), transform 0.18s cubic-bezier(.4,0,.2,1);
+    opacity: 1;
+    border-top: none;
+    transform: translateY(0);
 }
 
 .filter-dropdown-menu a {
-    padding: 8px 16px;
+    padding: 10px 32px;
     text-decoration: none;
-    color: #333;
-    font-size: 14px;
-    white-space: nowrap;
+    color: #222;
+    font-size: 16px;
+    border-radius: 100px;
+    transition: background 0.15s;
+    font-weight: 500;
 }
 
 .filter-dropdown-menu a:hover {
-    background-color: #f0f0f0;
+    background: #f3f6ff;
+    color: #3b82f6;
 }
 
 .price-input-wrapper {
@@ -258,5 +268,99 @@
     }
     .uydek-card-count {
         font-size: 15px;
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+    .uydek-main-header h1 {
+        font-size: 22px;
+    }
+    .uydek-main-header img {
+        width: 120px;
+    }
+    .filter-bar {
+        flex-direction: column;
+        gap: 8px;
+        padding: 4px;
+    }
+    .filter-item, .room-selector {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    .filter-button, .room-button, .show-button {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+    .room-selector {
+        flex-wrap: wrap;
+        gap: 4px;
+        padding: 2px;
+    }
+    .price-input-wrapper {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+    .price-input-wrapper input {
+        font-size: 13px;
+        width: 60px;
+    }
+    .uydek-cards-section {
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+    .uydek-cards-row {
+        gap: 8px;
+        margin-bottom: 8px;
+    }
+    .uydek-cards-col h2 {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+    .uydek-cards-grid {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .uydek-card, .uydek-card-50 {
+        width: 100% !important;
+        min-height: 60px;
+        padding: 10px 4px 10px 4px;
+        gap: 8px;
+    }
+    .uydek-card img {
+        width: 32px;
+        height: 32px;
+        margin-right: 8px;
+    }
+    .uydek-card-title {
+        font-size: 13px;
+    }
+    .uydek-card-count {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 319px) {
+    .uydek-main-header h1 {
+        font-size: 16px;
+    }
+    .uydek-main-header img {
+        width: 80px;
+    }
+    .filter-bar {
+        gap: 4px;
+    }
+    .uydek-card img {
+        width: 24px;
+        height: 24px;
+    }
+    .uydek-card-title {
+        font-size: 10px;
+    }
+    .uydek-card-count {
+        font-size: 10px;
     }
 }

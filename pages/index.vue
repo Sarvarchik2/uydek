@@ -26,7 +26,7 @@
         <div class="filter-item">
           <div class="price-input-wrapper">
             <span>Цена:</span>
-            <input type="text" :value="price" @input="formatPrice" placeholder="00000" />
+            <input type="text" :value="price" @input="formatPrice" placeholder="0" />
           </div>
         </div>
         <div class="filter-item">

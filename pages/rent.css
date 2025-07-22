@@ -1,0 +1,460 @@
+.listings-container {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.listings-filters {
+  background: none;
+  margin-bottom: 24px;
+}
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  /* overflow-x: scroll; */
+}
+.filter-btn {
+  background: #fff;
+  border: none;
+  border-radius: 100px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #5A83ED99;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.filter-btn.active, .filter-btn:hover {
+  background: #fff;
+  color: #5A83ED;
+  border: 1px solid #5A83ED;
+}
+.filter-input-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f6f8fb;
+  border-radius: 100px;
+  padding: 8px 16px;
+}
+.filter-input-group input {
+  width: 50px;
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  outline: none;
+  text-align: center;
+}
+.filter-dropdown {
+  position: relative;
+}
+
+.listings-content {
+  display: flex;
+  gap: 32px;
+}
+.listings-list {
+  flex: 2 1 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.listing-card {
+  display: flex;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(60, 100, 200, 0.07);
+  padding: 20px 24px;
+  gap: 24px;
+  align-items: flex-start;
+  position: relative;
+}
+.listing-img-wrap {
+  position: relative;
+  min-width: 360px;
+  max-width: 360px;
+  height: 284px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.listing-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+.listing-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #3b82f6;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 2px 12px;
+}
+.listing-info {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 100%;
+  justify-content: space-between;
+}
+.listing-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.listing-meta {
+  font-size: 15px;
+  color: #888;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.listing-dot {
+  font-size: 18px;
+  color: #bbb;
+}
+.listing-desc {
+  font-size: 15px;
+  color: #222;
+}
+.listing-benefit {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+.listing-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+.listing-btn {
+  background: #f6f8fb;
+  border: none;
+  border-radius: 100px;
+  padding: 8px 20px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #3b82f6;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.listing-btn.main {
+  background: #3b82f6;
+  color: #fff;
+}
+.listing-btn:hover {
+  background: #eaf1ff;
+}
+.listing-btn.main:hover {
+  background: #2563eb;
+}
+.listing-fav {
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #bbb;
+  cursor: pointer;
+  padding: 0 8px;
+  border-radius: 50%;
+  transition: color 0.15s, background 0.15s;
+}
+.listing-fav:hover {
+  color: #3b82f6;
+  background: #f3f6ff;
+}
+.listing-price {
+  font-size: 26px;
+  font-weight: 700;
+  color: #3b82f6;
+  min-width: 110px;
+  text-align: right;
+  margin-left: 12px;
+  position: absolute;
+  right: 24px;
+  top: 24px;
+}
+
+.listings-map {
+  flex: 1 1 0;
+  min-width: 260px;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.map-block {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(60, 100, 200, 0.07);
+  padding: 12px;
+  margin-top: 8px;
+  width: 100%;
+}
+.map-label {
+  text-align: center;
+  font-size: 15px;
+  color: #3b82f6;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.rent-filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.rent-filter-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  /* overflow-x: auto; */
+}
+.rent-filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffff;
+  color: #5A83ED;
+  border: none;
+  border-radius: 100px;
+  padding: 10px 22px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, border 0.18s;
+  border: 2px solid transparent;
+  box-shadow: none;
+}
+.rent-filter-btn.active {
+  background: #5A83ED;
+  color: #fff;
+  border: 2px solid #5A83ED;
+}
+.rent-filter-btn-wrapper-room{
+  padding: 5px 15px;color: #000;
+}
+.rent-filter-btn-menu{
+  padding: 10px;
+  background: #fff;
+  border-radius: 10px;
+}
+.rent-filter-btn-wrapper{
+  background: #fff;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 7px;
+
+}
+.rent-filter-btn.room-btn {
+  padding: 0;
+  width: 30px;
+  height:30px;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  background: #f6f8fb;
+  color: #bfcbe6;
+  border: 2px solid #f6f8fb;
+}
+.rent-filter-btn.room-btn.active {
+  background: #5A83ED;
+  color: #fff;
+  border: 2px solid #5A83ED;
+}
+.rent-filter-btn.room-btn:not(.active) {
+  color: #bfcbe6;
+  background: #f6f8fb;
+  border: 2px solid #f6f8fb;
+}
+.rent-filter-btn:disabled,
+.rent-filter-btn.disabled {
+  background: #f3f6ff;
+  color: #bfcbe6;
+  cursor: default;
+  border: 2px solid #f3f6ff;
+}
+.rent-filter-btn .icon {
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.rent-filter-dropdown {
+  position: relative;
+}
+.dropdown-arrow {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+.rent-filter-price-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  background: #fff;
+  border-radius: 100px;
+  padding: 8px 18px;
+  font-size: 16px;
+  font-weight: 400;
+  height: 49px;
+  width: 300px;
+}
+.rent-filter-label {
+  font-weight: 700;
+  margin-right: 4px;
+  color: #222;
+}
+.rent-filter-price-label {
+  color: #888;
+  font-weight: 600;
+  margin: 0 2px;
+}
+.rent-filter-price-value {
+  color: #bfcbe6;
+  font-weight: 600;
+  min-width: 38px;
+  text-align: start;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 600;
+  color: #222;
+}
+@media (max-width: 700px) {
+  .rent-filter-row {
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+  .rent-filter-btn, .rent-filter-price-group {
+    font-size: 13px;
+    padding: 7px 10px;
+  }
+  .rent-filter-btn.room-btn {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    max-width: 32px;
+    max-height: 32px;
+    font-size: 15px;
+  }
+  .rent-filter-price-group {
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .listings-content {
+    flex-direction: column;
+  }
+  .listings-map {
+    max-width: 100%;
+    align-items: stretch;
+    margin-top: 24px;
+  }
+}
+@media (max-width: 700px) {
+  .listings-container {
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+  .listings-filters {
+    margin-bottom: 10px;
+  }
+  .filter-row {
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+  .filter-btn, .filter-input-group {
+    font-size: 13px;
+    padding: 7px 10px;
+  }
+  .listing-card {
+    flex-direction: column;
+    padding: 10px 6px;
+    gap: 10px;
+  }
+  .listing-img-wrap {
+    min-width: 100%;
+    max-width: 100%;
+    height: 140px;
+  }
+  .listing-price {
+    text-align: left;
+    margin-left: 0;
+    font-size: 20px;
+    margin-top: 8px;
+  }
+  .map-block {
+    padding: 4px;
+  }
+} 
+
+.rent-filter-dropdown-building-type {
+  position: relative;
+  display: inline-block;
+}
+.rent-filter-btn-building-type {
+  background: #fff;
+  color: #222;
+  font-weight: 600;
+  border: none;
+  border-radius: 16px;
+  font-size: 18px;
+  padding: 10px 28px 10px 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+.dropdown-menu-building-type {
+  position: absolute;
+  top: 60%;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0 8px 32px rgba(60, 100, 200, 0.10), 0 1.5px 6px rgba(60, 100, 200, 0.04);
+  z-index: 1;
+  padding: 28px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.dropdown-item-building-type {
+  font-size: 18px;
+  color: #222;
+  font-weight: 600;
+  padding: 10px 32px;
+  /* border-radius: 16px; */
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.dropdown-item-building-type:hover {
+  background: #f6f8fb;
+}
+.dropdown-item-building-type.selected {
+  font-weight: 700;
+  background: #f6f8fb;
+} 
