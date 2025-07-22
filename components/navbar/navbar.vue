@@ -42,10 +42,17 @@
           <img src="@/assets/icons/user.svg" alt="user" />
         </div>
       </div>
-      <div class="burger-menu" @click="toggleMobileMenu">
-        <div :class="['burger-line', { 'open': isMobileMenuOpen }]"></div>
-        <div :class="['burger-line', { 'open': isMobileMenuOpen }]"></div>
-        <div :class="['burger-line', { 'open': isMobileMenuOpen }]"></div>
+    
+    </div>
+    <div v-if="isMobile" class="mobile-search-row">
+      <div class="mobile-search">
+        <input type="text" placeholder="Поиск" />
+        <img src="@/assets/icons/search.svg" alt="search" />
+      </div>
+      <div class="mobile-burger" @click="toggleMobileMenu">
+        <div :class="['burger-line', { 'open': isMobileMenuOpen }]" />
+        <div :class="['burger-line', { 'open': isMobileMenuOpen }]" />
+        <div :class="['burger-line', { 'open': isMobileMenuOpen }]" />
       </div>
     </div>
     <div :class="['mobile-menu', { 'open': isMobileMenuOpen }]">
@@ -75,6 +82,7 @@
 import { ref, reactive, onMounted, onBeforeUnmount } from 'vue';
 
 const isMobileMenuOpen = ref(false);
+const isMobile = ref(false);
 
 const dropdowns = reactive({
   rent: false,
@@ -101,12 +109,19 @@ const toggleMobileMenu = () => {
   }
 };
 
+function handleResize() {
+  isMobile.value = window.innerWidth <= 992;
+}
+
 onMounted(() => {
   document.addEventListener('click', closeAllDropdowns);
+  window.addEventListener('resize', handleResize);
+  handleResize();
 });
 
 onBeforeUnmount(() => {
   document.removeEventListener('click', closeAllDropdowns);
+  window.removeEventListener('resize', handleResize);
 });
 </script>
 

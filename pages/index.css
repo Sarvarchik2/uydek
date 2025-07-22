@@ -244,7 +244,7 @@
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(0, 0, 0, 0.085);
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   font-size: 28px;
@@ -451,7 +451,6 @@
         width: 48px;
         height: 48px;
         margin-right: 0;
-        margin-bottom: 8px;
     }
     .uydek-card-title {
         font-size: 16px;
@@ -469,10 +468,6 @@
     .catalog-section-header {
       margin-bottom: 10px;
     }
-    .catalog-section-title {
-      font-size: 16px;
-    }
-  
     .catalog-card-price {
       font-size: 15px;
       margin: 10px 0 2px 10px;
@@ -481,19 +476,54 @@
       font-size: 13px;
       margin-left: 10px;
     }
+    .catalog-cards-grid{
+        grid-template-columns: repeat(1, 1fr);
+
+    }
   }
-  
+@media (max-width: 580px) {
+    .uydek-main-header img{
+        width: 100%;
+    }
+    .uydek-cards-grid{
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: space-between;
+    }
+    .uydek-cards-row{
+        gap: 10px;
+    }
+    .uydek-card-content{
+        height: 100%;
+        justify-content: space-between;
+        gap: none;
+    }
+    .uydek-card{
+        width: 47%;
+        height: 120px;
+    }
+    .uydek-card img{
+        width: 88px;
+        height: 88px;
+    }
+    .uydek-card-title{
+        font-size: 18px;
+    }
+    .uydek-card-count{
+        font-size: 18px;
+    }
+    .uydek-card:nth-child(3){
+        width: 100%;
+    }
+}
 
 @media (max-width: 400px) {
-    .container {
-        padding-left: 4px;
-        padding-right: 4px;
-    }
+ 
     .uydek-main-header h1 {
         font-size: 22px;
     }
     .uydek-main-header img {
-        width: 120px;
+        width: 90%;
     }
     .filter-bar {
         flex-direction: column;
@@ -520,39 +550,6 @@
     .price-input-wrapper input {
         font-size: 13px;
         width: 60px;
-    }
-    .uydek-cards-section {
-        margin-top: 12px;
-        margin-bottom: 12px;
-    }
-    .uydek-cards-row {
-        gap: 8px;
-        margin-bottom: 8px;
-    }
-    .uydek-cards-col h2 {
-        font-size: 14px;
-        margin-bottom: 6px;
-    }
-    .uydek-cards-grid {
-        flex-direction: column;
-        gap: 8px;
-    }
-    .uydek-card, .uydek-card-50 {
-        width: 100% !important;
-        min-height: 60px;
-        padding: 10px 4px 10px 4px;
-        gap: 8px;
-    }
-    .uydek-card img {
-        width: 32px;
-        height: 32px;
-        margin-right: 8px;
-    }
-    .uydek-card-title {
-        font-size: 13px;
-    }
-    .uydek-card-count {
-        font-size: 12px;
     }
 }
 
