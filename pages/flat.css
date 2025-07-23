@@ -223,7 +223,7 @@
     }
     .flat-detail-info{
       flex: 1 0;
-width: 100%;
+        width: 100%;
     }
     .flat-detail-btn{
         width: 49%;

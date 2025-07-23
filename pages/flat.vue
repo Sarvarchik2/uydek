@@ -53,7 +53,6 @@
     <div class="catalog-section">
       <div class="catalog-section-header">
         <span class="catalog-section-title">Похожие квартиры</span>
-        <span class="catalog-section-arrow">&rarr;</span>
       </div>
       <Swiper
         :slides-per-view="1.2"
@@ -185,6 +184,5 @@ function toggleLike(type, idx) {
 .flat-suggestions-swiper .catalog-card {
   min-width: 260px;
   max-width: 340px;
-  margin: 0 auto;
 }
 </style> 
