@@ -189,10 +189,10 @@ const props = defineProps({
 
 function getBranchGlow(branch) {
   switch (branch) {
-    case 'red': return 'drop-shadow(0 0 8px #DC2424) brightness(1.2)';
-    case 'green': return 'drop-shadow(0 0 8px #2AAA2A) brightness(1.2)';
-    case 'yellow': return 'drop-shadow(0 0 8px #FFED00) brightness(1.2)';
-    case 'blue': return 'drop-shadow(0 0 8px #0300EE) brightness(1.2)';
+    case 'red': return 'drop-shadow(0 0 14px #DC2424) brightness(1)';
+    case 'green': return 'drop-shadow(0 0 14px #2AAA2A) brightness(1)';
+    case 'yellow': return 'drop-shadow(0 0 14px #FFED00) brightness(1)';
+    case 'blue': return 'drop-shadow(0 0 14px #0300EE) brightness(1)';
     default: return '';
   }
 }
@@ -300,7 +300,7 @@ function close() {
 }
 .metro-branch.hovered {
   opacity: 1;
-  filter: drop-shadow(0 0 8px #3b82f6) brightness(1.2);
+  filter: drop-shadow(0 0 14px #0060fb) brightness(1);
   z-index: 2;
 }
 .branches-hovered .metro-branch:not(.hovered) {
