@@ -241,7 +241,17 @@ width: 100%;
       box-shadow: none;
       min-height: 0;
     }
+    .flat-detail-params{
+        font-size: 16px;
+    }
+    .flat-detail-location{
+        font-size: 16px;
+    }
+    .flat-detail-title{
+        font-size: 20px;
+    }
   }
+
 
 @media (max-width: 480px) {
     .flat-detail-realtor-row{
