@@ -93,7 +93,7 @@
               <div class="listing-title">Улица Т.Шевченко 10/4</div>
               <div class="listing-price">400 y.e</div>
             </div>
-            <div class="listing-meta-row">
+            <NuxtLink to="/flat" class="listing-meta-row">
               <span class="listing-metro">
                 <img src="@/assets/icons/metrom.svg" class="metro-icon" alt="метро" />
                 <span class="metro-name">Ташкент</span>
@@ -102,9 +102,9 @@
                 <svg class="time-icon" width="18" height="18" viewBox="0 0 24 24"><path fill="#888" d="M12 8v5h4"/><circle cx="12" cy="12" r="10" stroke="#888" stroke-width="2" fill="none"/></svg>
                 7мин
               </span>
-            </div>
-            <div class="listing-desc">35,2 м² · 1-комнатная квартира 12 этаж из 12</div>
-            <div class="listing-benefit"><span class="benefit-label">ВЫГОДА</span> - Без залога · Платите арендный платёж картой любого банка, кредитной/дебетовой и получите бонусы в соответствии с условиями...</div>
+            </NuxtLink>
+            <NuxtLink to="/flat" class="listing-desc">35,2 м² · 1-комнатная квартира 12 этаж из 12</NuxtLink>
+            <NuxtLink to="/flat" class="listing-benefit"><span class="benefit-label">ВЫГОДА</span> - Без залога · Платите арендный платёж картой любого банка, кредитной/дебетовой и получите бонусы в соответствии с условиями...</NuxtLink>
             <div class="listing-actions-row">
               <button class="listing-btn main">Показать телефон</button>
               <button class="listing-btn outline">Написать в чат</button>
@@ -135,6 +135,7 @@ import { Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import SvgModal from '@/components/SvgModal.vue'
+import { NuxtLink } from '#components'
 
 const modules = [Pagination]
 const selectedRooms = ref(['Студия'])
