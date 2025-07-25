@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import ProfileContainer from '@/components/ProfileContainer.vue';
+useHead({ title: 'Бронирование | Uydek' });
 
 const bookings = ref([
   {
@@ -15,38 +16,45 @@ const bookings = ref([
 </script>
 
 <template>
-  <ProfileContainer active="booking">
-    <div v-if="bookings.length === 0" class="booking-empty">
-      <svg width="90" height="90" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M45 15c8.3 3.2 16.7 3.2 25 0v30c0 13.8-8.3 26.2-25 30C28.3 71.2 20 58.8 20 45V15c8.3 3.2 16.7 3.2 25 0Z" stroke="#6287F8" stroke-width="4" fill="none"/>
-      </svg>
-      <h2>Забронируйте жилье</h2>
-      <p>Вы еще не бронировали какое-либо жилье</p>
-    </div>
-    <div v-else class="booking-list">
-      <div class="booking-card" v-for="booking in bookings" :key="booking.id">
-        <img class="booking-img" :src="booking.img" alt="apartment" />
-        <div class="booking-info">
-          <div class="booking-header-row">
-            <h3>{{ booking.title }}</h3>
-          </div>
-          <div class="booking-details">{{ booking.details }}</div>
-          <div class="booking-realtor">Риелтор <span class="realtor-icon">👜</span></div>
-          <div class="booking-period">
-            Забронировано с <span class="date green">{{ booking.start }}</span> по <span class="date red">{{ booking.end }}</span>
-          </div>
-          <div class="booking-dates">
-            <div><span class="label">Дата бронирования</span> <span class="date green">{{ booking.start }}</span></div>
-          </div>
-        </div>
-        <button class="booking-btn">Посмотреть</button>
+  <div class="profile-page-wrap">
+    <h1 class="profile-title container">Бронирование</h1>
+    <ProfileContainer active="booking">
+      <div v-if="bookings.length === 0" class="booking-empty">
+        <svg width="90" height="90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M45 15c8.3 3.2 16.7 3.2 25 0v30c0 13.8-8.3 26.2-25 30C28.3 71.2 20 58.8 20 45V15c8.3 3.2 16.7 3.2 25 0Z" stroke="#6287F8" stroke-width="4" fill="none"/>
+        </svg>
+        <h2>Забронируйте жилье</h2>
+        <p>Вы еще не бронировали какое-либо жилье</p>
       </div>
-      <hr class="booking-divider" />
-    </div>
-  </ProfileContainer>
+      <div v-else class="booking-list">
+        <div class="booking-card" v-for="booking in bookings" :key="booking.id">
+          <img class="booking-img" :src="booking.img" alt="apartment" />
+          <div class="booking-info">
+            <div class="booking-header-row">
+              <h3>{{ booking.title }}</h3>
+            </div>
+            <div class="booking-details">{{ booking.details }}</div>
+            <div class="booking-realtor">Риелтор <span class="realtor-icon">👜</span></div>
+            <div class="booking-period">
+              Забронировано с <span class="date green">{{ booking.start }}</span> по <span class="date red">{{ booking.end }}</span>
+            </div>
+            <div class="booking-dates">
+              <div><span class="label">Дата бронирования</span> <span class="date green">{{ booking.start }}</span></div>
+            </div>
+          </div>
+          <button class="booking-btn">Посмотреть</button>
+        </div>
+        <hr class="booking-divider" />
+      </div>
+    </ProfileContainer>
+  </div>
 </template>
 
 <style scoped>
+.profile-title {
+  font-size: 2rem;
+  font-weight: 700;
+}
 .booking-list {
   width: 100%;
   max-width: 1100px;
@@ -171,5 +179,64 @@ const bookings = ref([
   font-size: 22px;
   color: #bdbdbd;
   margin: 0;
+}
+
+/* --- Адаптив --- */
+@media (max-width: 900px) {
+  .profile-title {
+    margin: 18px 0 16px 0;
+  }
+  .booking-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+    padding: 18px 0 12px 0;
+  }
+  .booking-img {
+    width: 100%;
+    height: 180px;
+    border-radius: 18px;
+    margin-bottom: 0;
+  }
+  .booking-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .booking-header-row h3 {
+    font-size: 18px;
+  }
+  .booking-details, .booking-period, .booking-realtor, .label {
+    font-size: 14px;
+  }
+  .booking-dates {
+    gap: 1px;
+  }
+  .booking-btn {
+    position: static;
+    width: 100%;
+    font-size: 15px;
+    padding: 10px 0;
+    margin-top: 8px;
+    border-radius: 14px;
+  }
+}
+@media (max-width: 600px) {
+  .profile-title {
+    margin: 12px 0 10px 0;
+  }
+  .booking-list {
+    padding: 0 2px 18px 2px;
+  }
+  .booking-img {
+    height: 140px;
+  }
+  .booking-header-row h3 {
+    font-size: 16px;
+  }
+  .booking-btn {
+    font-size: 14px;
+    padding: 8px 0;
+  }
 }
 </style> 

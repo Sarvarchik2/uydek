@@ -164,7 +164,6 @@ const isAdminPage = computed(() => {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 18px;
   color: #000;
   text-decoration: none;
 }

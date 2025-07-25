@@ -1,51 +1,58 @@
 <template>
-  <ProfileContainer active="favorite">
-    <div v-if="favorites.length === 0" class="favorite-empty">
-      <svg width="120" height="120" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="120" height="120" fill="none"/>
-        <path d="M30 40a10 10 0 0 1 10-10h40a10 10 0 0 1 10 10v50c0 4-4.5 6.5-8 4.2l-22-15.2-22 15.2c-3.5 2.3-8-.2-8-4.2V40Z" stroke="#6287F8" stroke-width="4" fill="none"/>
-        <rect x="50" y="32" width="20" height="6" rx="3" fill="#6287F8"/>
-      </svg>
-      <h2>Добавьте избранное</h2>
-      <p>Вы еще не добавляли в избранное какое-либо место житья</p>
-    </div>
-    <div v-else class="favorite-list">
-      <div v-for="fav in favorites" :key="fav.id" class="favorite-card">
-        <img class="favorite-img" :src="fav.img" alt="apartment" />
-        <div class="favorite-info">
-          <div class="favorite-title-row">
-            <h3>{{ fav.title }}</h3>
-            <div class="icon-btn-wrap">
-              <button class="icon-btn" @click="openConfirm(fav.id)">
-                <svg width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="13.5" stroke="#2563eb"/><path d="M14 9.5l2.09 4.24 4.66.68-3.38 3.29.8 4.65L14 18.27l-4.17 2.19.8-4.65-3.38-3.29 4.66-.68L14 9.5z" stroke="#2563eb" fill="none"/></svg>
-              </button>
-              <div v-if="showDropdown === fav.id" class="dropdown-confirm">
-                <div class="dropdown-text">Вы точно хотите удалить из избранного?</div>
-                <div class="dropdown-actions">
-                  <button class="dropdown-yes" @click="removeFavorite(fav.id)">Да</button>
-                  <button class="dropdown-no" @click="showDropdown = null">Нет</button>
+  <div class="profile-page-wrap">
+    <h1 class="profile-title container">Избранное</h1>
+    <ProfileContainer active="favorite">
+      <div v-if="favorites.length === 0" class="favorite-empty">
+        <svg width="120" height="120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="120" height="120" fill="none"/>
+          <path d="M30 40a10 10 0 0 1 10-10h40a10 10 0 0 1 10 10v50c0 4-4.5 6.5-8 4.2l-22-15.2-22 15.2c-3.5 2.3-8-.2-8-4.2V40Z" stroke="#6287F8" stroke-width="4" fill="none"/>
+          <rect x="50" y="32" width="20" height="6" rx="3" fill="#6287F8"/>
+        </svg>
+        <h2>Добавьте избранное</h2>
+        <p>Вы еще не добавляли в избранное какое-либо место житья</p>
+      </div>
+      <div v-else class="favorite-list">
+        <div v-for="fav in favorites" :key="fav.id" class="favorite-card">
+          <img class="favorite-img" :src="fav.img" alt="apartment" />
+          <div class="favorite-info">
+            <div class="favorite-title-row">
+              <h3>{{ fav.title }}</h3>
+              <div class="icon-btn-wrap">
+                <button class="icon-btn" @click="openConfirm(fav.id)">
+                  <svg width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="13.5" stroke="#2563eb"/><path d="M14 9.5l2.09 4.24 4.66.68-3.38 3.29.8 4.65L14 18.27l-4.17 2.19.8-4.65-3.38-3.29 4.66-.68L14 9.5z" stroke="#2563eb" fill="none"/></svg>
+                </button>
+                <div v-if="showDropdown === fav.id">
+                  <div class="dropdown-modal-overlay"></div>
+                  <div class="dropdown-confirm">
+                    <div class="dropdown-text">Вы точно хотите удалить из избранного?</div>
+                    <div class="dropdown-actions">
+                      <button class="dropdown-yes" @click="removeFavorite(fav.id)">Да</button>
+                      <button class="dropdown-no" @click="showDropdown = null">Нет</button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+            <div class="favorite-rating-row">
+              <span class="star">★</span>
+              <span class="rating">4.5 +</span>
+              <span class="owner">Собственник</span>
+            </div>
+            <div class="favorite-details">2 guests | 1 bathroom | 2 bedroom</div>
+            <div class="favorite-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum...</div>
+            <button class="go-btn">Перейти</button>
           </div>
-          <div class="favorite-rating-row">
-            <span class="star">★</span>
-            <span class="rating">4.5 +</span>
-            <span class="owner">Собственник</span>
-          </div>
-          <div class="favorite-details">2 guests | 1 bathroom | 2 bedroom</div>
-          <div class="favorite-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum...</div>
-          <button class="go-btn">Перейти</button>
         </div>
+        <hr v-if="favorites.length > 1" class="favorite-divider" />
       </div>
-      <hr v-if="favorites.length > 1" class="favorite-divider" />
-    </div>
-  </ProfileContainer>
+    </ProfileContainer>
+  </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import ProfileContainer from '@/components/ProfileContainer.vue';
+useHead({ title: 'Избранное | Uydek' });
 
 const favorites = ref([
   {
@@ -72,6 +79,10 @@ function removeFavorite(id) {
 </script>
 
 <style scoped>
+.profile-title {
+  font-size: 2rem;
+  font-weight: 700;
+}
 .favorite-list {
   width: 100%;
   max-width: 1100px;
@@ -248,5 +259,119 @@ function removeFavorite(id) {
   font-size: 22px;
   color: #bdbdbd;
   margin: 0;
+}
+
+/* --- Адаптив --- */
+@media (max-width: 900px) {
+    .dropdown-confirm {
+    min-width: unset;
+    width: 90vw;
+    left: 50%;
+    right: auto;
+    top: 48px;
+    transform: translateX(-50%);
+    padding: 14px 8px 10px 8px;
+  }
+  .favorite-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+    padding: 18px 0 12px 0;
+  }
+  .favorite-img {
+    width: 100%;
+    height: 180px;
+    border-radius: 18px;
+    margin-bottom: 0;
+  }
+  .favorite-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .favorite-title-row h3 {
+    font-size: 18px;
+  }
+  .icon-btn {
+    width: 38px;
+    height: 38px;
+  }
+  .favorite-rating-row {
+    font-size: 15px;
+  }
+  .star {
+    font-size: 18px;
+  }
+  .favorite-details, .favorite-desc {
+    font-size: 14px;
+  }
+  .go-btn {
+    width: 100%;
+    font-size: 15px;
+    padding: 10px 0;
+    margin-top: 8px;
+  }
+}
+@media (max-width: 600px) {
+  .favorite-list {
+    padding: 0 2px 18px 2px;
+  }
+  .favorite-img {
+    height: 140px;
+  }
+  .favorite-title-row h3 {
+    font-size: 16px;
+  }
+  .go-btn {
+    font-size: 14px;
+    padding: 8px 0;
+  }
+}
+
+/* --- Адаптив для модалки --- */
+.dropdown-modal-overlay {
+  display: none;
+}
+@media (max-width: 900px) {
+  .dropdown-modal-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.25);
+    z-index: 1001;
+  }
+  .dropdown-confirm {
+    position: fixed !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 92vw !important;
+    min-width: unset !important;
+    max-width: 400px;
+    background: #fff;
+    border-radius: 18px;
+    z-index: 1002;
+    padding: 22px 12px 16px 12px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .dropdown-text {
+    font-size: 16px;
+    margin-bottom: 14px;
+  }
+  .dropdown-actions {
+    gap: 14px;
+    justify-content: center;
+  }
+  .dropdown-yes, .dropdown-no {
+    font-size: 16px;
+    padding: 10px 18px;
+  }
 }
 </style> 
