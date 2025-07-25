@@ -30,9 +30,6 @@
     </nav>
     <div class="sidebar-overlay" v-if="showSidebar" @click="showSidebar = false"></div>
   </aside>
-  <button class="sidebar-burger" @click="showSidebar = true" v-if="!showSidebar">
-    <svg width="32" height="32" viewBox="0 0 32 32"><rect y="7" width="32" height="3" rx="1.5" fill="#2563eb"/><rect y="15" width="32" height="3" rx="1.5" fill="#2563eb"/><rect y="23" width="32" height="3" rx="1.5" fill="#2563eb"/></svg>
-  </button>
 </template>
 
 <script setup>
@@ -86,49 +83,15 @@ const showSidebar = ref(false);
   color: inherit;
   display: block;
 }
-.sidebar-burger {
-  display: none;
-  position: fixed;
-  top: 32px;
-  left: 24px;
-  z-index: 1200;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 6px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-}
 .sidebar-overlay {
   display: none;
 }
 @media (max-width: 900px) {
   .sidebar {
-    position: fixed;
-    top: 0;
-    left: -270px;
-    height: 100vh;
-    z-index: 1100;
-    border-radius: 0 16px 16px 0;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-    transition: left 0.3s;
-  }
-  .sidebar.open {
-    left: 0;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-  }
-  .sidebar-burger {
-    display: block;
+    display: none !important;
   }
   .sidebar-overlay {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.18);
-    z-index: 1099;
+    display: none !important;
   }
 }
 </style> 

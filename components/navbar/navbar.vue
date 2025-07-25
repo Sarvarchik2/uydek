@@ -42,7 +42,6 @@
           <img src="@/assets/icons/user.svg" alt="user" />
         </div>
       </div>
-    
     </div>
     <div v-if="isMobile" class="mobile-search-row">
       <div class="mobile-search">
@@ -55,14 +54,27 @@
         <div :class="['burger-line', { 'open': isMobileMenuOpen }]" />
       </div>
     </div>
+    <div v-if="isMobileMenuOpen" class="mobile-menu-overlay" @click="toggleMobileMenu"></div>
     <div :class="['mobile-menu', { 'open': isMobileMenuOpen }]">
       <div class="mobile-menu-header">
         <span class="close-icon" @click="toggleMobileMenu">&times;</span>
       </div>
       <ul>
-        <li>Аренда</li>
-        <li>Продажа</li>
-        <li>Сообщения</li>
+        <li @click="toggleMobileMenu">Аренда</li>
+        <li @click="toggleMobileMenu">Продажа</li>
+        <li @click="toggleMobileMenu">Сообщения</li>
+        <li v-if="isAdminPage">
+          <NuxtLink to="/profile" class="admin-link" @click.native="toggleMobileMenu">Профиль</NuxtLink>
+        </li>
+        <li v-if="isAdminPage">
+          <NuxtLink to="/favorite" class="admin-link" @click.native="toggleMobileMenu">Избранное</NuxtLink>
+        </li>
+        <li v-if="isAdminPage">
+          <NuxtLink to="/reviews" class="admin-link" @click.native="toggleMobileMenu">Отзывы</NuxtLink>
+        </li>
+        <li v-if="isAdminPage">
+          <NuxtLink to="/booking" class="admin-link" @click.native="toggleMobileMenu">Бронирование</NuxtLink>
+        </li>
         <li>
           <div class="mobile-language">
             <span>Язык</span>
@@ -79,7 +91,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, onMounted, onBeforeUnmount } from 'vue';
+import { ref, reactive, onMounted, onBeforeUnmount, computed } from 'vue';
+import { useRoute } from 'vue-router';
 
 const isMobileMenuOpen = ref(false);
 const isMobile = ref(false);
@@ -123,8 +136,40 @@ onBeforeUnmount(() => {
   document.removeEventListener('click', closeAllDropdowns);
   window.removeEventListener('resize', handleResize);
 });
+
+const route = useRoute();
+const isAdminPage = computed(() => {
+  return [
+    '/profile',
+    '/favorite',
+    '/reviews',
+    '/booking'
+  ].some(path => route.path.startsWith(path));
+});
 </script>
 
 <style>
 @import "./navbar.css";
+.mobile-menu-overlay {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.18);
+  z-index: 19;
+}
+.admin-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  color: #000;
+  text-decoration: none;
+}
+.admin-link img {
+  width: 22px;
+  height: 22px;
+}
 </style>
