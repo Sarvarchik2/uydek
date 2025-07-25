@@ -26,6 +26,12 @@
             <span>Бронирование</span>
           </li>
         </NuxtLink>
+        <NuxtLink to="/chat" :class="{ active: active === 'chat' }">
+          <li>
+            <img src="@/assets/icons/user.svg" alt="Чат" />
+            <span>Чат</span>
+          </li>
+        </NuxtLink>
       </ul>
     </nav>
     <div class="sidebar-overlay" v-if="showSidebar" @click="showSidebar = false"></div>
