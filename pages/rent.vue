@@ -13,7 +13,7 @@
         <button class="filter-btn">За рубежом</button>
       </div>
       <div class="filter-row rent-filter-row">
-        <button class="rent-filter-btn rent-filter-btn-menu">
+        <button class="rent-filter-btn rent-filter-btn-menu" @click="showRentFilterModal = true">
           <img src="@/assets/icons/filter_menu.svg" alt="filter" class="icon">
         </button>
      
@@ -120,6 +120,7 @@
       </div>
     </div>
   </div>
+  <RentFilterModal v-model="showRentFilterModal" />
   <SvgModal v-model="showMetroModal">
     <!-- Вставь сюда свой SVG -->
     <svg width="300" height="120" viewBox="0 0 300 120"><rect x="10" y="10" width="280" height="100" rx="20" fill="#e9edf8" stroke="#3b82f6" stroke-width="4"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="24" fill="#3b82f6">Тут будет карта метро</text></svg>
@@ -135,6 +136,7 @@ import { Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import SvgModal from '@/components/SvgModal.vue'
+import RentFilterModal from '@/components/RentFilterModal.vue'
 import { NuxtLink } from '#components'
 
 const modules = [Pagination]
@@ -142,6 +144,7 @@ const selectedRooms = ref(['Студия'])
 const selectedBuildingType = ref('Взнос и платеж')
 const isBuildingTypeDropdownOpen = ref(false)
 const showMetroModal = ref(false)
+const showRentFilterModal = ref(false)
 
 const images = [
   'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80',
