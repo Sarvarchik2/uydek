@@ -291,7 +291,8 @@ function close() {
   }
   .rent-filter-modal-row{
     display: flex;
-    align-items: center;
+    align-items: start;
+    flex-direction: column;
     gap: 12px;
     margin-bottom: 16px;
   }

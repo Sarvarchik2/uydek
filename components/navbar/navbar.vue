@@ -86,6 +86,9 @@
         <NuxtLink v-if="isAdminPage" to="/booking" class="mobile-menu-btn mobile-menu-btn-link" @click="toggleMobileMenu">
           Бронирование
         </NuxtLink>
+        <NuxtLink to="/map" class="mobile-menu-btn mobile-menu-btn-link" @click="toggleMobileMenu">
+          Карта
+        </NuxtLink>
       </div>
       <!-- <div class="mobile-menu-footer">
         <NuxtLink to="/chat" class="mobile-menu-btn mobile-menu-btn-link" @click="toggleMobileMenu">

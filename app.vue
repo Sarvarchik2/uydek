@@ -55,6 +55,45 @@ body {
   transition: width 0.3s;
 }
 
+/* Глобальные стили для Leaflet попапов */
+.leaflet-popup-content-wrapper {
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
+  padding: 0 !important;
+  border: none !important;
+  overflow: hidden !important;
+  background: #fff !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  font-family: inherit !important;
+  padding: 12px !important;
+  min-width: 280px !important;
+  max-width: 280px !important;
+  overflow: hidden !important;
+  background: #fff !important;
+  border-radius: 12px !important;
+}
+
+.leaflet-popup-tip {
+  background: #fff !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.leaflet-popup-close-button {
+  color: #64748b !important;
+  font-size: 20px !important;
+  padding: 8px !important;
+  font-weight: 300 !important;
+  transition: color 0.2s !important;
+  z-index: 10 !important;
+}
+
+.leaflet-popup-close-button:hover {
+  color: #1e293b !important;
+}
+
 :root {
   --container-padding-x: 15px;
 }

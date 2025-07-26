@@ -15,6 +15,7 @@
       <div class="filter-row rent-filter-row">
         <button class="rent-filter-btn rent-filter-btn-menu" @click="showRentFilterModal = true">
           <img src="@/assets/icons/filter_menu.svg" alt="filter" class="icon">
+          Категории
         </button>
      
         <div class="rent-filter-btn-wrapper">
@@ -52,7 +53,7 @@
           <input type="text" placeholder="--" class="rent-filter-price-value"/>
         </div>
     
-        <div class="rent-filter-dropdown-building-type">
+        <!-- <div class="rent-filter-dropdown-building-type">
           <button class="rent-filter-btn rent-filter-btn-building-type" @click="toggleBuildingTypeDropdown">
             {{ selectedBuildingType }}
             <svg class="dropdown-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left:6px;vertical-align:middle;">
@@ -63,7 +64,11 @@
             <div class="dropdown-item-building-type" :class="{ selected: selectedBuildingType === 'Взнос и платеж' }" @click="selectBuildingType('Взнос и платеж')">Взнос и платеж</div>
             <div class="dropdown-item-building-type" :class="{ selected: selectedBuildingType === 'Вторичка' }" @click="selectBuildingType('Вторичка')">Вторичка</div>
           </div>
-        </div>
+        </div> -->
+        <button class="rent-filter-btn" >
+          <img src="@/assets/icons/onmap.svg" alt="метро" class="icon" style="width:20px;vertical-align:middle;" />
+            На карте
+        </button>
         <button class="rent-filter-btn" @click="showMetroModal = true">
           <img src="@/assets/icons/metro.svg" alt="метро" class="icon" style="width:20px;vertical-align:middle;" />
           Метро

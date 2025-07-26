@@ -15,7 +15,10 @@
   justify-content: space-between;
   overflow-x: scroll;
   border-radius: 20px;
-
+  scrollbar-width: none; /* Firefox */
+}
+.filter-row::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }
 .filter-btn {
   background: #fff;
@@ -380,17 +383,21 @@
 }
 .rent-filter-btn-menu{
   padding: 10px;
-  background: #fff;
-  border-radius: 10px;
-}
-.rent-filter-btn-wrapper{
+  
   background: #fff;
   border-radius: 30px;
+}
+.rent-filter-btn-wrapper {
+  scrollbar-width: none; /* Firefox */
   display: flex;
-  align-items: center;
-  gap: 24px;
-  padding: 7px;
-
+  gap: 10px;
+  height: 49px;
+  padding: 10px;
+  border-radius: 30px;
+  background: #fff;
+}
+.rent-filter-btn-wrapper::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }
 .rent-filter-btn.room-btn {
   padding: 0;
@@ -620,6 +627,7 @@
   .rent-filter-btn, .rent-filter-price-group {
     font-size: 13px;
     padding: 7px 10px;
+ 
   }
   .rent-filter-btn.room-btn {
     width: 32px;
@@ -639,6 +647,7 @@
 @media (max-width: 700px) {
   .listings-container {
     margin-bottom: 12px;
+    margin-top: 0;
   }
   .listings-filters {
     margin-bottom: 10px;
@@ -650,6 +659,8 @@
   .filter-btn, .filter-input-group {
     font-size: 13px;
     padding: 7px 10px;
+    width: max-content;
+    white-space: nowrap;
   }
   .listing-card {
     flex-direction: column;
