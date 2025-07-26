@@ -57,35 +57,61 @@
     <div v-if="isMobileMenuOpen" class="mobile-menu-overlay" @click="toggleMobileMenu"></div>
     <div :class="['mobile-menu', { 'open': isMobileMenuOpen }]">
       <div class="mobile-menu-header">
-        <span class="close-icon" @click="toggleMobileMenu">&times;</span>
+        <div class="mobile-menu-logo">
+          <img src="@/assets/logo.svg" alt="logo" />
+        </div>
+        <div class="mobile-menu-close" @click="toggleMobileMenu">
+          <span>&times;</span>
+        </div>
       </div>
-      <ul>
-        <li @click="toggleMobileMenu">Аренда</li>
-        <li @click="toggleMobileMenu">Продажа</li>
-        <li @click="toggleMobileMenu">Сообщения</li>
-        <li v-if="isAdminPage">
-          <NuxtLink to="/profile" class="admin-link" @click.native="toggleMobileMenu">Профиль</NuxtLink>
-        </li>
-        <li v-if="isAdminPage">
-          <NuxtLink to="/favorite" class="admin-link" @click.native="toggleMobileMenu">Избранное</NuxtLink>
-        </li>
-        <li v-if="isAdminPage">
-          <NuxtLink to="/reviews" class="admin-link" @click.native="toggleMobileMenu">Отзывы</NuxtLink>
-        </li>
-        <li v-if="isAdminPage">
-          <NuxtLink to="/booking" class="admin-link" @click.native="toggleMobileMenu">Бронирование</NuxtLink>
-        </li>
-        <li>
-          <div class="mobile-language">
-            <span>Язык</span>
-            <div>
-              <a href="#">Русский</a>
-              <a href="#">English</a>
-              <a href="#">O'zbekcha</a>
-            </div>
+      <div class="mobile-menu-content">
+        <NuxtLink to="/" class="mobile-menu-btn mobile-menu-btn-rent" @click="toggleMobileMenu">
+          Аренда
+        </NuxtLink>
+        <NuxtLink to="/" class="mobile-menu-btn mobile-menu-btn-sale" @click="toggleMobileMenu">
+          Продажа
+        </NuxtLink>
+        <NuxtLink to="/chat" class="mobile-menu-btn mobile-menu-btn-link" @click="toggleMobileMenu">
+          Сообщения
+        </NuxtLink>
+        <NuxtLink v-if="isAdminPage" to="/profile" class="mobile-menu-btn mobile-menu-btn-link" @click="toggleMobileMenu">
+          Профиль
+        </NuxtLink>
+        <NuxtLink v-if="isAdminPage" to="/favorite" class="mobile-menu-btn mobile-menu-btn-link" @click="toggleMobileMenu">
+          Избранное
+        </NuxtLink>
+        <NuxtLink v-if="isAdminPage" to="/reviews" class="mobile-menu-btn mobile-menu-btn-link" @click="toggleMobileMenu">
+          Отзывы
+        </NuxtLink>
+        <NuxtLink v-if="isAdminPage" to="/booking" class="mobile-menu-btn mobile-menu-btn-link" @click="toggleMobileMenu">
+          Бронирование
+        </NuxtLink>
+      </div>
+      <!-- <div class="mobile-menu-footer">
+        <NuxtLink to="/chat" class="mobile-menu-btn mobile-menu-btn-link" @click="toggleMobileMenu">
+          Сообщения
+        </NuxtLink>
+        <NuxtLink v-if="isAdminPage" to="/profile" class="mobile-menu-btn mobile-menu-btn-link" @click="toggleMobileMenu">
+          Профиль
+        </NuxtLink>
+        <NuxtLink v-if="isAdminPage" to="/favorite" class="mobile-menu-btn mobile-menu-btn-link" @click="toggleMobileMenu">
+          Избранное
+        </NuxtLink>
+        <NuxtLink v-if="isAdminPage" to="/reviews" class="mobile-menu-btn mobile-menu-btn-link" @click="toggleMobileMenu">
+          Отзывы
+        </NuxtLink>
+        <NuxtLink v-if="isAdminPage" to="/booking" class="mobile-menu-btn mobile-menu-btn-link" @click="toggleMobileMenu">
+          Бронирование
+        </NuxtLink>
+        <div class="mobile-language">
+          <span>Язык</span>
+          <div>
+            <a href="#">Русский</a>
+            <a href="#">English</a>
+            <a href="#">O'zbekcha</a>
           </div>
-        </li>
-      </ul>
+        </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -119,6 +145,13 @@ const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value;
   if(isMobileMenuOpen.value) {
     closeAllDropdowns();
+    if (typeof window !== 'undefined') {
+      document.body.style.overflow = 'hidden';
+    }
+  } else {
+    if (typeof window !== 'undefined') {
+      document.body.style.overflow = '';
+    }
   }
 };
 
@@ -135,6 +168,9 @@ onMounted(() => {
 onBeforeUnmount(() => {
   document.removeEventListener('click', closeAllDropdowns);
   window.removeEventListener('resize', handleResize);
+  if (typeof window !== 'undefined') {
+    document.body.style.overflow = '';
+  }
 });
 
 const route = useRoute();
