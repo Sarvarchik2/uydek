@@ -136,11 +136,11 @@
             <img src="@/assets/index/buy.svg" alt="Купить" />
             <div class="uydek-card-count">2.356</div>
           </div>
-          <div class="uydek-card">
+          <NuxtLink to="/rent" class="uydek-card">
             <div class="uydek-card-title">Снять</div>
             <img src="@/assets/index/can_rent.svg" alt="Снять" />
             <div class="uydek-card-count">2.356</div>
-          </div>
+          </NuxtLink>
         </div>
         <div class="uydek-cards-row">
           <div class="uydek-card">
