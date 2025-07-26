@@ -36,7 +36,7 @@
 
 }
 
-.filter-button, .room-button, .show-button {
+.filter-button, .room-button, .show-button, .quick-search-button {
     border-radius: 100px;
     border: none;
     background-color: #fff;
@@ -52,7 +52,7 @@
     transition: background-color 0.2s;
 }
 
-.filter-button:hover, .room-button:hover {
+.filter-button:hover, .room-button:hover, .quick-search-button:hover {
     background-color: #e5e7eb;
 }
 

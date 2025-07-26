@@ -41,6 +41,12 @@
             <img src="@/assets/icons/search_building.svg" alt="building icon" />
           </button>
         </div>
+        <div class="filter-item">
+          <button class="quick-search-button" @click="showQuickSearch = true">
+            <span class="hide-on-tablet">Быстрый поиск</span>
+            <img src="@/assets/icons/search.svg" alt="quick search icon" />
+          </button>
+        </div>
       </div>
       <!-- Секция карточек -->
       <div v-if="!isMobile" class="uydek-cards-section">
@@ -225,6 +231,13 @@
         </div>
       </div>
     </div>
+    
+    <!-- Quick Search Modal -->
+    <QuickSearchModal 
+      v-model="showQuickSearch"
+      search-type="buy"
+      @search-complete="handleQuickSearchComplete"
+    />
   </div>
 </template>
 
@@ -234,6 +247,16 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import QuickSearchModal from '@/components/QuickSearchModal.vue';
+
+// --- Quick Search Modal ---
+const showQuickSearch = ref(false);
+
+const handleQuickSearchComplete = (searchData: any) => {
+  console.log('Quick search completed:', searchData);
+  // Здесь можно добавить логику для обработки результатов поиска
+  // Например, перенаправление на страницу с результатами
+};
 
 // --- Room Selector ---
 const selectedRooms = ref('1');
