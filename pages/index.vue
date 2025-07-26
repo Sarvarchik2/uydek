@@ -43,7 +43,7 @@
         </div>
       </div>
       <!-- Секция карточек -->
-      <div class="uydek-cards-section">
+      <div v-if="!isMobile" class="uydek-cards-section">
         <div class="uydek-cards-row">
           <div class="uydek-cards-col">
             <h2>Часто ищут</h2>
@@ -129,6 +129,43 @@
           </div>
         </div>
       </div>
+      <div v-else class="uydek-cards-mobile">
+        <div class="uydek-cards-row">
+          <div class="uydek-card">
+            <div class="uydek-card-title">Купить</div>
+            <img src="@/assets/index/buy.svg" alt="Купить" />
+            <div class="uydek-card-count">2.356</div>
+          </div>
+          <div class="uydek-card">
+            <div class="uydek-card-title">Снять</div>
+            <img src="@/assets/index/can_rent.svg" alt="Снять" />
+            <div class="uydek-card-count">2.356</div>
+          </div>
+        </div>
+        <div class="uydek-cards-row">
+          <div class="uydek-card">
+            <div class="uydek-card-mobile-title">Новостройки</div>
+            <img src="@/assets/index/new_building.svg" alt="Новостройки" />
+            <div class="uydek-card-count">2.356</div>
+          </div>
+          <div class="uydek-card">
+            <div class="uydek-card-mobile-title">Про дом</div>
+            <img src="@/assets/index/cost.svg" alt="Про дом" />
+            <div class="uydek-card-mobile-count">2.356</div>
+          </div>
+        </div>
+        <button class="uydek-mobile-main-btn">Разместить объявление</button>
+        <div class="uydek-card-mobile-horizontal">
+            <div class="uydek-card-title">Подберем квартиру</div>
+            <div class="uydek-card-count">2.356</div>
+          <img src="@/assets/index/chose_flat.svg" alt="Подберем квартиру" />
+        </div>
+        <div class="uydek-card-mobile-horizontal">
+            <div class="uydek-card-title">Квартиры от самолет</div>
+            <div class="uydek-card-count">2.356</div>
+          <img src="@/assets/index/plane.svg" alt="Квартиры от самолет" />
+        </div>
+      </div>
       <div class="main-catalog-block">
         <div class="catalog-section">
           <div class="catalog-section-header">
@@ -192,7 +229,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from 'vue';
+import { ref, reactive, onMounted } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -302,6 +339,19 @@ function toggleLike(type: 'buy' | 'rent', idx: number) {
   if (type === 'buy') buyCards.value[idx].liked = !buyCards.value[idx].liked
   else rentCards.value[idx].liked = !rentCards.value[idx].liked
 }
+
+const isMobile = ref(false);
+function handleResize() {
+  if (typeof window !== 'undefined') {
+    isMobile.value = window.innerWidth <= 769;
+  }
+}
+onMounted(() => {
+  handleResize();
+  if (typeof window !== 'undefined') {
+    window.addEventListener('resize', handleResize);
+  }
+});
 </script>
 
 <style scoped>
