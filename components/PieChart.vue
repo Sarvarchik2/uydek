@@ -26,7 +26,7 @@ const props = defineProps({
   },
   size: {
     type: Number,
-    default: 120
+    default: 140
   }
 });
 
@@ -55,7 +55,7 @@ const createChart = () => {
         data: props.data,
         backgroundColor: props.colors,
         borderWidth: 0,
-        cutout: '70%'
+        cutout: '0%'
       }]
     },
     options: {

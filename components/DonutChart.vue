@@ -93,14 +93,14 @@ const createChart = () => {
 }
 
 .donut-value {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   color: #222;
   line-height: 1;
 }
 
 .donut-label {
-  font-size: 14px;
+  font-size: 12px;
   color: #666;
   line-height: 1;
 }

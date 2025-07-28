@@ -73,7 +73,7 @@
           <DonutChart 
             :value="83" 
             :label="'Рассмотрено'"
-            :size="120"
+            :size="140"
             :color="'#2563eb'"
           />
         </div>
@@ -255,9 +255,9 @@ onMounted(() => {
 /* Центральные карточки */
 .center-cards {
   display: flex;
-  flex-direction: column;
   gap: 12px;
   flex: 1;
+  justify-content: space-between;
 }
 
 .stats-card {
@@ -265,19 +265,20 @@ onMounted(() => {
   border-radius: 8px;
   padding: 12px 16px;
   border: 2px solid;
-  min-height: 80px;
+  min-height: 140px;
+  width: 30%;
 }
 
 .green-border {
-  border-left: 4px solid #059669;
+  border: 2px solid #059669;
 }
 
 .blue-border {
-  border-left: 4px solid #2563eb;
+  border: 2px solid #2563eb;
 }
 
 .dark-blue-border {
-  border-left: 4px solid #1e40af;
+  border: 2px solid #1e40af;
 }
 
 .card-content {

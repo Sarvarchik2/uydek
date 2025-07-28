@@ -32,12 +32,7 @@
             <span>Чат</span>
           </li>
         </NuxtLink>
-        <NuxtLink to="/map" :class="{ active: active === 'map' }">
-          <li>
-            <img src="@/assets/icons/onmap.svg" alt="Карта" />
-            <span>Карта</span>
-          </li>
-        </NuxtLink>
+       
       </ul>
     </nav>
     <div class="sidebar-overlay" v-if="showSidebar" @click="showSidebar = false"></div>

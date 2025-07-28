@@ -7,7 +7,7 @@
       <div class="sales-metrics">
         <div class="metric-card">
           <div class="metric-icon">
-            <img src="@/assets/icons/filter_menu.svg" alt="Продажи" />
+            <img src="@/assets/bussines/money.svg" alt="Продажи" />
           </div>
           <div class="metric-content">
             <div class="metric-label">Всего продано:</div>
@@ -17,7 +17,7 @@
 
         <div class="metric-card">
           <div class="metric-icon">
-            <img src="@/assets/icons/filter_menu.svg" alt="Сегодня" />
+            <img src="@/assets/bussines/sold.svg" alt="Сегодня" />
           </div>
           <div class="metric-content">
             <div class="metric-label">Сегодня продано:</div>
@@ -27,7 +27,7 @@
 
         <div class="metric-card">
           <div class="metric-icon">
-            <img src="@/assets/icons/search_building.svg" alt="Жилье" />
+            <img src="@/assets/bussines/build.svg" alt="Жилье" />
           </div>
           <div class="metric-content">
             <div class="metric-label">Количество проданного жилья:</div>
@@ -183,7 +183,7 @@ onMounted(() => {
       {
         label: 'Продажи',
         data: [2.5, 3.8, 4.2, 3.5, 5.1, 6.3, 5.7, 4.8, 4.1, 3.9, 3.2, 2.8],
-        borderColor: '#fbbf24',
+        borderColor: '#D7ED5A',
         backgroundColor: function(context) {
           const chart = context.chart;
           const {ctx, chartArea} = chart;
@@ -199,7 +199,7 @@ onMounted(() => {
         borderWidth: 3,
         fill: true,
         tension: 0.4,
-        pointBackgroundColor: '#fbbf24',
+        pointBackgroundColor: '#D7ED5A',
         pointBorderColor: '#fff',
         pointBorderWidth: 3,
         pointRadius: 6,
@@ -244,7 +244,6 @@ onMounted(() => {
 .metric-icon {
   width: 48px;
   height: 48px;
-  background: #fef3c7;
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -253,8 +252,8 @@ onMounted(() => {
 }
 
 .metric-icon img {
-  width: 24px;
-  height: 24px;
+  width: 100%;
+  height: 100%;
 }
 
 .metric-content {
