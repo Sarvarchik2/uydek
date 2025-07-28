@@ -38,9 +38,9 @@
             <a href="#">O'zbekcha</a>
           </div>
         </div>
-        <div class="navbar-user">
+        <NuxtLink to="/profile" class="navbar-user">
           <img src="@/assets/icons/user.svg" alt="user" />
-        </div>
+        </NuxtLink>
       </div>
     </div>
     <div v-if="isMobile" class="mobile-search-row">
@@ -90,31 +90,6 @@
           Карта
         </NuxtLink>
       </div>
-      <!-- <div class="mobile-menu-footer">
-        <NuxtLink to="/chat" class="mobile-menu-btn mobile-menu-btn-link" @click="toggleMobileMenu">
-          Сообщения
-        </NuxtLink>
-        <NuxtLink v-if="isAdminPage" to="/profile" class="mobile-menu-btn mobile-menu-btn-link" @click="toggleMobileMenu">
-          Профиль
-        </NuxtLink>
-        <NuxtLink v-if="isAdminPage" to="/favorite" class="mobile-menu-btn mobile-menu-btn-link" @click="toggleMobileMenu">
-          Избранное
-        </NuxtLink>
-        <NuxtLink v-if="isAdminPage" to="/reviews" class="mobile-menu-btn mobile-menu-btn-link" @click="toggleMobileMenu">
-          Отзывы
-        </NuxtLink>
-        <NuxtLink v-if="isAdminPage" to="/booking" class="mobile-menu-btn mobile-menu-btn-link" @click="toggleMobileMenu">
-          Бронирование
-        </NuxtLink>
-        <div class="mobile-language">
-          <span>Язык</span>
-          <div>
-            <a href="#">Русский</a>
-            <a href="#">English</a>
-            <a href="#">O'zbekcha</a>
-          </div>
-        </div>
-      </div> -->
     </div>
   </div>
 </template>
