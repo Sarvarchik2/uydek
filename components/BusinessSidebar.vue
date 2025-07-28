@@ -32,16 +32,11 @@
             <span>Объявления</span>
           </li>
         </NuxtLink>
-        <NuxtLink to="/bussines/requests" :class="{ active: active === 'requests' }">
+      
+        <NuxtLink to="/bussines/booking" :class="{ active: active === 'booking' }">
           <li>
-            <img src="@/assets/icons/user.svg" alt="Запросы" />
-            <span>Запросы</span>
-          </li>
-        </NuxtLink>
-        <NuxtLink to="/bussines/messages" :class="{ active: active === 'messages' }">
-          <li>
-            <img src="@/assets/icons/user.svg" alt="Сообщения" />
-            <span>Сообщения</span>
+            <img src="@/assets/icons/user.svg" alt="Бронирования" />
+            <span>Бронирования</span>
           </li>
         </NuxtLink>
       </ul>
